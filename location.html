@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تحديد الموقع الجغرافي</title>
+</head>
+<body>
+    <h2>📍 جاري تحديد الموقع...</h2>
+    <p>يرجى السماح بالوصول إلى الموقع الجغرافي.</p>
+
+    <script>
+        function sendLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+
+                    // إرسال الموقع عبر الرابط HTTPS صالح
+                    // هذا الرابط سيقوم Flet WebView بالتقاطه في on_url_change
+                    const url = "https://example.com/location?lat=" + lat + "&lon=" + lon;
+                    window.location.href = url;
+                }, function(error) {
+                    alert("تعذر الحصول على الموقع. يرجى التأكد من السماح بالوصول.");
+                });
+            } else {
+                alert("متصفحك لا يدعم تحديد الموقع الجغرافي.");
+            }
+        }
+
+        sendLocation();
+    </script>
+</body>
+</html>
