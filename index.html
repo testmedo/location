@@ -17,7 +17,7 @@
 
                     // إرسال الموقع عبر الرابط HTTPS صالح
                     // هذا الرابط سيقوم Flet WebView بالتقاطه في on_url_change
-                    const url = "https://example.com/location?lat=" + lat + "&lon=" + lon;
+                    const url = "https://testmedo.github.io/location/?lat=" + lat + "&lon=" + lon;
                     window.location.href = url;
                 }, function(error) {
                     alert("تعذر الحصول على الموقع. يرجى التأكد من السماح بالوصول.");
@@ -31,3 +31,4 @@
     </script>
 </body>
 </html>
+
